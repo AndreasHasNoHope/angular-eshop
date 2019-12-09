@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>{{ cData.title }}</h1>
+      <p class="">{{ cData.paragraph }}</p>
+    </div>
+    <div class="col-6">
+      <agm-map
+        [latitude]="center.lat"
+        [longitude]="center.lng"
+        [zoom]="mapZoom"
+      >
+        <agm-marker
+          *ngFor="let dep of stores"
+          [latitude]="dep.coordinates.lat"
+          [longitude]="dep.coordinates.lng"
+        ></agm-marker>
+      </agm-map>  
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{data.title}}</h1>
+      <p>{{data.paragraph}}</p>
+    </div>
+    <div class="row">
+      <div class="col-3" *ngFor="let h of data.home">
+        <a [routerLink]="'/products/' + h._id">
+          <img [src]="h.gallery" class="img-fluid product-image"/>
+        </a>
+
+
+      </div>
+    </div>
+  </div>
+</div>

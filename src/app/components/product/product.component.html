@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>{{product.title}}</h1>
+    </div>
+    <div class="col-6">
+      <a [routerLink]="'/products/' + product._id">
+        <img [src]="product.photo" class="img-fluid product-image"/>
+      </a>
+      <h2>{{product.price}}&euro;</h2>
+    </div>
+  </div>
+</div>
+
