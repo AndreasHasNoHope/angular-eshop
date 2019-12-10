@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -8,36 +7,24 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  public contact: any = [];
 
-  public cData: any = {};
-
-  public center = {
-    lat: 41.3,
-    lng: 24.9
-  };
-
-  public mapZoom: number = 12;
-
-  public stores = [
-    {
-      title: "Shop 1",
-      coordinates: {
-        lat: "42.6",
-        lng: "23.9"
-      }
-    }
-  ];
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit() {
-
-
-    this.http.get("https://simple-api.develobird.gr/contact")
+    this.http.get('https://simple-api.develobird.gr/contact')
       .subscribe(response => {
-        this.cData= response;
+        console.log(response);
+        this.contact = response;
       });
   }
+
+  public mapZoom: number = 15.7;
+  public center = {
+    lat: 40.635711,
+    lng: 22.9420186
+
+  };
 
 }

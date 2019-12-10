@@ -1,32 +1,34 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h1>{{ cData.title }}</h1>
-      <p class="">{{ cData.paragraph }}</p>
+      <h2 class="text-left mt-2">{{contact.title}}</h2>
+      <h5 class="text-justify">{{contact.paragraph}}</h5>
+      <h5 class="mt-5">Contact Info</h5>
+      <h6 class="text-left ">email: {{contact.email}}</h6>
+      <h6 class="text-left ">phone: {{contact.phone}}</h6>
     </div>
-    <div class="col-6">
+    <div class="col-6 mt-2">
+      <h2> Where you can find us</h2>
       <agm-map
         [latitude]="center.lat"
         [longitude]="center.lng"
         [zoom]="mapZoom"
+        [mapTypeId]="'roadmap'"
       >
         <agm-marker
-          *ngFor="let dep of stores"
+          *ngFor="let dep of contact.departments "
           [latitude]="dep.coordinates.lat"
           [longitude]="dep.coordinates.lng"
-        ></agm-marker>
-      </agm-map>  
+        >
+          <agm-info-window>
+            <h6>{{dep.title}}</h6>
+          </agm-info-window>
+        </agm-marker>
+
+      </agm-map>
+
     </div>
+
+
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-

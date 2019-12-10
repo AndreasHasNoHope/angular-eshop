@@ -11,7 +11,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ProductComponent } from './components/product/product.component';
+import {WeatherComponent} from "./components/weather/weather.component";
 import {AgmCoreModule} from "@agm/core";
+
 
 
 
@@ -34,6 +36,10 @@ const routes = [
     component: AboutComponent
   },
   {
+    path: "weather",
+    component: WeatherComponent
+  },
+  {
     path: "contact",
     component: ContactComponent
   }
@@ -44,6 +50,7 @@ const routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    WeatherComponent,
     HomeComponent,
     AboutComponent,
     ContactComponent,

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http"
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-products',
@@ -8,17 +8,21 @@ import { HttpClient } from "@angular/common/http"
 })
 export class ProductsComponent implements OnInit {
 
-  public data: any = {};
+  public products: any = [];
+
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient
+  ) {
+  }
 
   ngOnInit() {
-
-    this.http.get("https://simple-api.develobird.gr/products")
+    this.http.get('https://simple-api.develobird.gr/products')
       .subscribe(response => {
-        this.data= response;
+        console.log(response);
+        this.products = response;
       });
+
 
   }
 
