@@ -1,4 +1,10 @@
-<div class="fixed-bottom bg-dark text-center text-white p-3">
-  <div>Copyright &copy; 2019 | Shoe Shop k kala</div>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 fixed-bottom">
+      <button class="btn btn-light" (click)="ss.decreaseNumber()">-</button>
+      {{ss.num}}
+      <button class="btn btn-light" (click)="ss.increaseNumber()">+</button>
+      <input type="color" [(ngModel)]="ss.txt"/>
+    </div>
+  </div>
 </div>

@@ -1,37 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-10 mb-20" >
-      <div class="text-center mt-2 "><h1>{{home.title}}</h1></div>
+    <div id="home_title" class="col-12 mt-3 mb-3">
+      {{ response.title }}
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div id="carouselExampleControls" class="carousel-fade carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item "  [class.active]="i===0" *ngFor="let g of home.gallery; let i=index">
-            <img [src] = "g" class="d-block w-100" alt=" ">
-          </div>
-
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-10">
-      <div class="text-justify"><h6>{{home.paragraph}}</h6></div>
-
+    <div id="home_text" class="col-12 mt-3 mb-4">
+      {{ response.paragraph }}
     </div>
   </div>
 </div>
-
-
+<app-carousel-holder></app-carousel-holder>

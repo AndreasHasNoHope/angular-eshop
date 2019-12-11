@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +8,19 @@ import {HttpClient} from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  public home: any = {};
+  public response = {};
 
   constructor(
-    private http: HttpClient) {
-  }
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
-    this.http.get('https://simple-api.develobird.gr/home')
-      .subscribe(response => {
-        console.log(response);
-        this.home = response;
-      });
 
+    this.http.get('https://simple-api.develobird.gr/home')
+      .subscribe(r => {
+        this.response = r;
+        console.log(this.response);
+      });
 
   }
 

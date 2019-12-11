@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -7,24 +7,21 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  public contact: any = [];
 
-  constructor(private http: HttpClient) {
-  }
+  public response = {};
+  public coordinates = [];
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
+
     this.http.get('https://simple-api.develobird.gr/contact')
-      .subscribe(response => {
-        console.log(response);
-        this.contact = response;
+      .subscribe(r => {
+        this.response = r;
       });
+
   }
-
-  public mapZoom: number = 15.7;
-  public center = {
-    lat: 40.635711,
-    lng: 22.9420186
-
-  };
 
 }

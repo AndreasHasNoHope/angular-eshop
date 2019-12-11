@@ -1,34 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <h2 class="text-left mt-2">{{contact.title}}</h2>
-      <h5 class="text-justify">{{contact.paragraph}}</h5>
-      <h5 class="mt-5">Contact Info</h5>
-      <h6 class="text-left ">email: {{contact.email}}</h6>
-      <h6 class="text-left ">phone: {{contact.phone}}</h6>
+    <div id="contact_title" class="col-12 mt-3 mb-3">
+      {{ response.title }}
     </div>
-    <div class="col-6 mt-2">
-      <h2> Where you can find us</h2>
+    <div class="col-6">
+      <p>{{ response.paragraph }}</p>
+    </div>
+    <div class="col-6">
+      <span>email: {{ response.email }}</span><br>
+      <span>tel: {{ response.phone }}</span>
+    </div>
+    <div class="col-6">
+      <select class="custom-select" [(ngModel)]="coordinates">
+        <option value="" selected disabled hidden>Select Store</option>
+        <option
+          *ngFor="let dep of response.departments"
+          [ngValue]="dep.coordinates">{{ dep.title }}</option>
+      </select>
+    </div>
+    <div class="col-6">
       <agm-map
-        [latitude]="center.lat"
-        [longitude]="center.lng"
-        [zoom]="mapZoom"
-        [mapTypeId]="'roadmap'"
+        [latitude]="coordinates.lat"
+        [longitude]="coordinates.lng"
+        [zoom]="15"
       >
         <agm-marker
-          *ngFor="let dep of contact.departments "
-          [latitude]="dep.coordinates.lat"
-          [longitude]="dep.coordinates.lng"
+          [latitude]="coordinates.lat"
+          [longitude]="coordinates.lng"
         >
-          <agm-info-window>
-            <h6>{{dep.title}}</h6>
-          </agm-info-window>
         </agm-marker>
-
       </agm-map>
-
     </div>
-
-
   </div>
 </div>
+
+<!--response.departments[0].coordinates.lng-->
+
